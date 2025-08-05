@@ -83,3 +83,23 @@ img {
     display: block;
     margin-top: 12px;
 }
+
+.new-post-link {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid var(--colourThree);
+    background-color: var(--colourFour);
+    color: var(--colourTwo);
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.new-post-link:hover {
+    background-color: var(--colourThree);
+    transform: scale(1.02);
+    text-decoration: none;
+}
