@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <h2>${post.title}</h2>
         ${post.image ? `<img src="${post.image}" alt="Post image" style="max-width: 100%; height: auto;">` : ""}
         <p>${post.content.substring(0, 100)}...</p>
-        <a href="post.html?id=#{post.id}">View Post</a>
+        <a href="post.html#${post.id}">View Post</a>
         `;
 
         container.appendChild(postElement);
