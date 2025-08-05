@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
         postElement.className = "post";
         postElement.innerHTML = `
         <h2>${post.title}</h2>
+        ${post.image ? `<img src="${post.image}" alt="Post image" style="max-width: 100%; height: auto;">` : ""}
         <p>${post.content.substring(0, 100)}...</p>
-        <a href="post.html?{post.id}">View POst</a>
+        <a href="post.html?id=${post.id}">View Post</a>
         `;
+
         container.appendChild(postElement);
     });
 });
