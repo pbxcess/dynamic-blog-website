@@ -52,18 +52,8 @@
                 };
                 reader.readAsDataURL(imageInput.files[0]);
             } else {
-                savePost();
-            }
-/*
-            const newPost = {
-                id: Date.now(),
-                title,
-                content
+                savePost()
             };
-            posts.push(newPost);
-            localStorage.setItem("posts", JSON.stringify(posts));
-            window.location.href = "index.html";
-            */
         });
     </script>
 </body>
