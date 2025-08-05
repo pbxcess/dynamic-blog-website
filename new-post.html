@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Create a New Blog POst</h1>
+    <h1>Create a New Blog Post</h1>
     <form id="postForm">
         <input type="text" id="title" placeholder="Title" required><br><br>
         
@@ -25,7 +25,7 @@
             e.preventDefault();
             const title = document.getElementById("title").value.trim();
             const content = document.getElementById("content").value.trim();
-            const imageInput = document.getElementbyId("image");
+            const imageInput = document.getElementById("image");
             const posts = JSON.parse(localStorage.getItem("posts")) || [];
             if (!title || !content) {
                 alert("Title and Content are required.");
