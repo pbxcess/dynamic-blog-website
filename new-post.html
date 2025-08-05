@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>Create a New Blog POst</h1>
+    <form id="postForm">
+        <input type="text" id="title" placeholder="Title" required><br>
+        <textarea id="content" placeholder="Write your post here..." required></textarea><br>
+        <button type="submit">Save Post</button>
+    </form>
+    <a href="index.html">Back to Home</a>
+
+    <script>
+        document.getElementById("postForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const title = document.getElementById("title").value.trim();
+            const content = document.getElementById("content").value.trim();
+            if (!title || !content) return alert("Title and Content are required.");
+
+            const posts = JSON.parse(localStorage.getItem("posts")) || [];
+            const newPost = {
+                id: Date.now(),
+                title,
+                content
+            };
+            posts.push(newPost);
+            localStorage.setItem("posts", JSON.stringify(posts));
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
