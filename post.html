@@ -29,6 +29,7 @@
         <button id="delete">Delete Post</button>
       `;
 
+      //save feature
       document.getElementById("save").onclick = () => {
         post.title = document.getElementById("edit-title").innerText.trim();
         post.content = document.getElementById("edit-content").value.trim();
@@ -36,6 +37,7 @@
         alert("Changes saved!");
       };
 
+      //delete feature
       document.getElementById("delete").onclick = () => {
         const updatedPosts = posts.filter(p => p.id !== postId);
         localStorage.setItem("posts", JSON.stringify(updatedPosts));
