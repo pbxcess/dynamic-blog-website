@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Post</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="post-view"></div>
+  <a href="index.html">Back to Home</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const postId = Number(params.get("id"));
+    const posts = JSON.parse(localStorage.getItem("posts")) || [];
+    const post = posts.find(p => p.id === postId);
+
+    const container = document.getElementById("post-view");
+
+    if (!post) {
+      container.innerHTML = "<p>Post not found.</p>";
+    } else {
+      container.innerHTML = `
+        <h1 contenteditable="true" id="edit-title">${post.title}</h1>
+        <textarea id="edit-content">${post.content}</textarea><br>
+        <button id="save">Save Changes</button>
+        <button id="delete">Delete Post</button>
+      `;
+
+      document.getElementById("save").onclick = () => {
+        post.title = document.getElementById("edit-title").innerText.trim();
+        post.content = document.getElementById("edit-content").value.trim();
+        localStorage.setItem("posts", JSON.stringify(posts));
+        alert("Changes saved!");
+      };
+
+      document.getElementById("delete").onclick = () => {
+        const updatedPosts = posts.filter(p => p.id !== postId);
+        localStorage.setItem("posts", JSON.stringify(updatedPosts));
+        window.location.href = "index.html";
+      };
+    }
+  </script>
+</body>
+</html>
