@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Create a New Blog Post</h1>
+    <h1>Create a New Blog POst</h1>
     <form id="postForm">
-        <input type="text" id="title" placeholder="Title" required><br>
-        <textarea id="content" placeholder="Write your post here..." required></textarea><br>
+        <input type="text" id="title" placeholder="Title" required><br><br>
+        
+        <textarea id="content" placeholder="Write your post here..." required></textarea><br><br>
+
+        <label for="image">Add Image(optional):</label>
+        <input type="file" id="image" accept="image/*"><br><br>
+
         <button type="submit">Save Post</button>
     </form>
     <a href="index.html">Back to Home</a>
@@ -20,17 +25,35 @@
             e.preventDefault();
             const title = document.getElementById("title").value.trim();
             const content = document.getElementById("content").value.trim();
-            if (!title || !content) return alert("Title and Content are required.");
-
+            const imageInput = document.getElementbyId("image");
             const posts = JSON.parse(localStorage.getItem("posts")) || [];
-            const newPost = {
-                id: Date.now(),
-                title,
-                content
-            };
-            posts.push(newPost);
-            localStorage.setItem("posts", JSON.stringify(posts));
-            window.location.href = "index.html";
+            if (!title || !content) {
+                alert("Title and Content are required.");
+                return;
+            }
+
+            function savePost(imageData = "") {
+                const newPost = {
+                    id: Date.now(),
+                    title,
+                    content,
+                    image: imageData
+                };
+
+                posts.push(newPost);
+                localStorage.setItem("posts", JSON.stringify(posts));
+                window.location.href = "index.html";
+            }
+
+            if (imageInput.files.length > 0) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    savePost(reader.result);
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                savePost();
+            }
         });
     </script>
 </body>
