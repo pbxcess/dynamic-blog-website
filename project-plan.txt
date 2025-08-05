@@ -1,0 +1,15 @@
+Project Plan for Dynamic Blog Website
+
+Pages: 
+- index.html: Home page, shows all blog posts
+- new-post.html: Form to create a blog post.
+- post.html: View and edit a specific blog post.
+
+Features:
+- CRUD: Create, Read, Update, Delete posts.
+- JavaScript and Local Storage for logic.
+- Responsive design using CSS.
+
+Version Control:
+- Git branches for each feature.
+- Pull requests for merging.
