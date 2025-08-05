@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         postElement.innerHTML = `
         <h2>${post.title}</h2>
         <p>${post.content.substring(0, 100)}...</p>
-        <a href="post.html?{post.id}">View POst</a>
+        <a href="post.html?id=${post.id}">View Post</a>
         `;
         container.appendChild(postElement);
     });
