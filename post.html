@@ -11,8 +11,7 @@
   <a href="index.html">Back to Home</a>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const postId = Number(params.get("id"));
+    const postId = Number(window.location.hash.slice(1));
     const posts = JSON.parse(localStorage.getItem("posts")) || [];
     const post = posts.find(p => p.id === postId);
 
