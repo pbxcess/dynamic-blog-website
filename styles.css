@@ -1,0 +1,12 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.post {
+    border: 1px solid #3d0909;
+    padding: 10px;
+    margin-bottom: 15px;
+}
