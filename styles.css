@@ -1,8 +1,15 @@
+:root{
+    --colourOne: #3d0909;
+    --colourTwo: #eccbcb;
+    --colourThree: #b86929;
+}
+
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 20px;
     max-width: 800px;
     margin: auto;
+    background-color: var(--colourOne);
 }
 
 .post {
@@ -21,4 +28,11 @@ body {
     input, textarea {
         width: 100%;
     }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 12px;
 }
